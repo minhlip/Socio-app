@@ -1,0 +1,8 @@
+@import "./style.scss";
+.layout{
+    @include themify($themes){
+        background-color: themed("bgSoft");
+        overflow: hidden;
+        top: 0;
+    }
+}
