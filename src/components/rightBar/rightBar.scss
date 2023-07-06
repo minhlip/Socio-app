@@ -1,0 +1,93 @@
+@import "../../style.scss";
+.rightBar{
+    @include themify($themes){
+    flex: 3.8;
+    position: sticky;
+    right: 100;
+    top: 80px;
+    right: 5px;
+    height: 100vh;
+    background-color: themed("bgSoft");
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    .containerRight{
+        padding: 20px;
+
+        .itemRight{
+            -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+            -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: themed("bg");
+            border-radius: 10px;
+            border: 1px solid themed("border");
+            border-bottom: transparent;
+            span{
+                color: gray;
+
+            }
+            .userRight{
+                display: flex;
+                align-items: center;
+                margin: 18px 0;
+                justify-content: space-between;
+                .userInforRight{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    position: relative;
+
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                    .online{
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background-color: #0ada0a;
+                        position: absolute;
+                        top: 0;
+                        left: 22px;
+                    }
+                    span{
+                        font-weight: 500;
+                        color: themed("textColor");
+                    }
+                    p{
+                        color: themed("textColorSoft");
+                    }
+
+                }
+                .buttons{
+                    display: flex ;
+                    align-items: center;
+                    gap: 10px;
+
+                    button{
+                        border: none;
+                        padding: 5px;
+                        color: white;
+                        cursor: pointer;
+                        padding: 6px;
+                        border-radius: 6px;
+
+                        &:first-child{
+                            background-color: #007bff;
+                        }
+                        &:last-child{
+                            background-color: #dc3545;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    }
+}
