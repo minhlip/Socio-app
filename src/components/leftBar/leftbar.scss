@@ -15,7 +15,10 @@
     color: themed("textColor");
     border: 1px solid themed("border");
     border-left: none;
-
+    
+    @include mobile{
+        display: none;
+      }
     &::-webkit-scrollbar{
         display: none;
     }

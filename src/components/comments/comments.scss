@@ -12,34 +12,39 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 10px;
             max-width: 20px 0px;
 
             input{
                 width: 100%;
                 flex: 5;
-                padding: 10px;
+                padding: 15px;
                 border: 1px solid themed("border");
                 background-color: transparent;
-                color: themed("textColor")
+                color: themed("textColor");
+                border-radius: 10px;
             }
             button{
                 border: none;
                 background-color: #5271ff;
                 color: #ffffff;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 500;
-                padding: 10px;
+                padding: 15px;
                 cursor: pointer;
-                border-radius: 5px;
+                border-radius: 8px;
             }
         }
 
         .comment{
-            margin: 30px 0px;
+            margin: 20px 0px;
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            justify-content: space-around;
+            gap: 15px;
+
+            img{
+                margin-top: 10px;
+            }
 
             .info{
                 flex: 6;
@@ -47,21 +52,23 @@
                 flex-direction: column;
                 gap: 1px;
                 align-items: flex-start;
-
                 span{
                     font-weight: 500;
+                    font-size: 16px;
                 }
 
                 p{
                     color: themed("colorTextSoft");
+                    margin-top: 10px;
                 }
             }
 
             .date{
-                flex: 1;
+                flex: 1.1;
                 align-self: center;
                 color: gray;
                 font-size: 12px;
+                padding: 3px;
             }
 
         }

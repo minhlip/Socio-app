@@ -3,6 +3,8 @@ import {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item
 import LeftbarItems from './LeftbarItems'
 import "./leftbar.scss"
 import { AuthContext } from '../../context/authContext'
+import { useQuery, useMutation,useQueryClient } from '@tanstack/react-query';
+import { makeRequest } from '../../axios';
 
 const items1 = [
   {
@@ -78,13 +80,21 @@ const items3 = [
 
 const Leftbar = () => {
   const { currentUser } = useContext(AuthContext)
+  const userId = currentUser.id.toString()
+  const { data } = useQuery(["user"], () =>
+  makeRequest.get("/users/find/" + userId).then((res) => {
+    return res.data;
+  })
+  );
+  let profilePic = data?.profilePic
+  let name = data?.name
   return (
     <div className='leftbar'>
       <div className='container'>
         <div className='menu'>
           <div className='user'>
-            <img src={currentUser.profilePic} alt='user' />
-            <h5>{currentUser.name}</h5>
+            <img src={"/upload/"+profilePic} alt='user' />
+            <h5>{name}</h5>
           </div>
 
           <div className='items'>

@@ -11,12 +11,22 @@ import { Link } from 'react-router-dom';
 import "./navbar.scss"
 import { DarkModeContext } from '../../context/darkModeContext';
 import { AuthContext } from '../../context/authContext';
-
+import {
+    useQuery, useQueryClient
+  } from '@tanstack/react-query' 
+  import { makeRequest } from "../../axios";
+  import { useLocation } from "react-router-dom";
 const Navbar = () => { 
-
     const {toggle, darkMode} = useContext(DarkModeContext)
     const {currentUser} = useContext(AuthContext)
-
+    const userId = currentUser.id.toString()
+    const { data } = useQuery(["user"], () =>
+    makeRequest.get("/users/find/" + userId).then((res) => {
+      return res.data;
+    })
+  );
+  let profilePic = data?.profilePic
+  let name = data?.name
     return (
     <div className='navbar'>
         <div className='left'>
@@ -38,9 +48,9 @@ const Navbar = () => {
             <NotificationsOutlinedIcon/>
             <PersonOutlineOutlinedIcon/>
             <div className='user'>
-                <img src={currentUser["profilePic"]} alt=''/>
-                {console.log(currentUser.profilePic)  }              
-                <span>{currentUser.name}</span>
+                <img src={"/upload/"+profilePic} alt=''/>
+            
+                <span>{name}</span>
             </div>
         </div>
     </div>

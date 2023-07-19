@@ -8,7 +8,12 @@
     right: 5px;
     height: 100vh;
     background-color: themed("bgSoft");
-
+    @include mobile{
+        display: none;
+      }
+      @include tablet{
+        display: none;
+      }
     &::-webkit-scrollbar{
         display: none;
     }
